@@ -1,0 +1,17 @@
+{
+  "name": "overflow",
+  "version": "1.0.0",
+  "description": "stackOverFlow for project eduNow",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cyrus_Zei",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.4.12",
+    "node-restful": "^0.2.5"
+  }
+}
