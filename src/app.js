@@ -10,7 +10,9 @@ var app = express();
 app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
+
 app.use(methodOverride());
+app.use('/', express.static('../public'));
 
 require('./database');
 var Resource = app.resource = movies;
