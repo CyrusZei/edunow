@@ -7,7 +7,12 @@ var movieSchema = new mongoose.Schema({
   name: String,
   author: String,
   rating: Number,
-  watched: Boolean
+  watched: Boolean,
+  comments: [{
+    name: String,
+    vote: Number,
+    msg: String
+      }]
 });
 
 var movies =  restful.model('movies', movieSchema)

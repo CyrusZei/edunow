@@ -4,6 +4,7 @@ var methodOverride = require('method-override');
 var restful = require('node-restful');
 var mongoose = restful.mongoose;
 var movies = require('./models/movies');
+var path    = require("path");
 var app = express();
 
 
@@ -14,10 +15,15 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 app.use(methodOverride());
 app.use('/', express.static('../public'));
 
+
+
 require('./database');
 var Resource = app.resource = movies;
 
 Resource.register(app, '/api');
+
+
+
 
 
 app.listen(3000, function(){
