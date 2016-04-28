@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var restful = require('node-restful');
 var mongoose = restful.mongoose;
-var movies = require('./models/movies');
+var questions = require('./models/question');
 var path    = require("path");
 var app = express();
 
@@ -18,7 +18,7 @@ app.use('/', express.static('../public'));
 
 
 require('./database');
-var Resource = app.resource = movies;
+var Resource = app.resource = questions;
 
 Resource.register(app, '/api');
 

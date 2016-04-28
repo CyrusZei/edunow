@@ -1,5 +1,5 @@
 var express = require('express');
-var movies = require('../models/movies');
+var questions = require('../models/questions');
 
 var router = express.Router();
 

@@ -3,11 +3,11 @@ var mongoose = require('mongoose');
 var restful = require('node-restful');
 var mongoose = restful.mongoose;
 
-var movieSchema = new mongoose.Schema({
-  name: String,
-  author: String,
-  rating: Number,
-  watched: Boolean,
+var questionSchema = new mongoose.Schema({
+  question_headline: String,
+  author_user: String,
+  question_msg: String,
+  tags: String,
   comments: [{
     name: String,
     vote: Number,
@@ -15,9 +15,9 @@ var movieSchema = new mongoose.Schema({
       }]
 });
 
-var movies =  restful.model('movies', movieSchema)
+var questions =  restful.model('questions', questionSchema)
   .methods(['get', 'post', 'put', 'delete']);
 
 
 
-module.exports = movies;
+module.exports = questions;
