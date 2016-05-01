@@ -62,6 +62,20 @@ $scope.addNewQuestion = function() {
 app.controller('viewController', ['$scope', '$routeParams','$http', '$location','$window',   function($scope, $routeParams, $http,$location,$window){
 var questionId = $routeParams.id;
 
+//mark comment as correct answer
+$scope.correct = function(index){
+  $scope.question.comments[index].correct_answer = true;
+  $http({
+    method: 'PUT',
+    url: '/api/' + questionId,
+    data: {
+      comments: $scope.question.comments
+    }
+  });
+};
+
+
+// up vote a comment
 $scope.upVoteComment = function(index){
   console.log(index);
   $scope.question.comments[index].vote += 1;
@@ -76,12 +90,13 @@ $scope.upVoteComment = function(index){
   });
 };
 
-// --------------
+// add new comment
 $scope.addNewComment = function(){
   commentArray ={
     name: $scope.comment_name,
     vote: 0,
-    msg:$scope.comment_msg
+    msg:$scope.comment_msg,
+    correct_answer: false
   };
 
   $scope.question.comments.push(commentArray);

@@ -13,12 +13,14 @@
     <input  type="text" ng-model="comment_msg"/>
     <input type="submit" />
   </form>
-  <div ng-repeat="comment in question.comments track by $index">
+  <div ng-repeat="comment in question.comments track by $index " ng-class="comment.correct_answer ? 'correct_answer_true' : 'correct_answer_default'">
 
-    <hr />
+
     <h4>{{comment.name}}</h4>
     <h4 ng-click="upVoteComment($index)">{{comment.vote}}</h4>
     <h4>{{comment.msg}}</h4>
-    <h4>{{comment._id}}</h4>
-    <h4>{{comment.index}}</h4>
+    <span class="correct_answer" ng-click="correct($index)">Correct answer?</span>
+    <br />
+    <br />
+<hr />
   </div>

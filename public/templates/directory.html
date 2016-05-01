@@ -1,4 +1,6 @@
-<div ng-repeat="question in questions">
+
+ Search: <input ng-model="query">
+<div ng-repeat="question in questions | filter:query">
   <a ng-href="/#/question/{{question._id}}"><h1>{{question.question_headline}}</h1></a>
   <h2>{{question.author_user}}</h2>
   <h2>{{question.question_msg}}</h2>
