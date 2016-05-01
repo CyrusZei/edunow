@@ -1,0 +1,22 @@
+
+  <h1>{{question.question_headline}}</h1>
+  <h2>{{question.author_user}}</h2>
+  <h2>{{question.question_msg}}</h2>
+  <h2>{{question.tags}}</h2>
+
+  <a ng-click="delete()">Delete</a>
+
+  <hr />
+  <h3>kommentarer</h3>
+  <form id="comment_form" ng-submit="addNewComment()">
+    <input type="text" ng-model="comment_name"/>
+    <input  type="text" ng-model="comment_msg"/>
+    <input type="submit" />
+  </form>
+  <div ng-repeat="comment in question.comments">
+
+    <hr />
+    <h4>{{comment.name}}</h4>
+    <h4>{{comment.vote}}</h4>
+    <h4>{{comment.msg}}</h4>
+  </div>
