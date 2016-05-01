@@ -59,9 +59,19 @@ border:none;
 }
 
 .question_box_footer {
-  width: 100%;
+  width: 96%;
   padding: 0px 0px 0px 20px;
 
+}
+.question_box_footer_tags {
+padding-left: 10px;
+}
+.question_box_footer_answers {
+float: right;
+}
+.space_icon {
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .question_box_white {
   background-color: #FFFFFF;
