@@ -62,7 +62,19 @@ $scope.addNewQuestion = function() {
 app.controller('viewController', ['$scope', '$routeParams','$http', '$location','$window',   function($scope, $routeParams, $http,$location,$window){
 var questionId = $routeParams.id;
 
-
+$scope.upVoteComment = function(index){
+  console.log(index);
+  $scope.question.comments[index].vote += 1;
+  console.log($scope.question.comments);
+  //console.log($scope.question);
+  $http({
+    method: 'PUT',
+    url: '/api/' + questionId,
+    data: {
+      comments: $scope.question.comments
+    }
+  });
+};
 
 // --------------
 $scope.addNewComment = function(){
@@ -108,7 +120,7 @@ $scope.addNewComment = function(){
     //$scope.question.comments.push(commentArray);
     //console.log($scope.question);
     //console.log(questionId);
-
+    console.log($scope.question.comments[0].vote);
   });
 
 
