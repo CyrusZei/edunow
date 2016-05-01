@@ -22,9 +22,8 @@
 </div>
   <div class="question_box_msg">
     <form id="comment_form" ng-submit="addNewComment()">
-      <input type="text" ng-model="comment_name" placeholder="Ditt namn" id="comment_name"/><br />
-      <!-- <input  type="text" ng-model="comment_msg" placeholder="Ditt svar"/> -->
-      <textarea ng-model="comment_msg" placeholder="Ditt svar" cols="40" rows="10" id="comment_msg"></textarea><br />
+      <input type="text" ng-model="comment_name" placeholder="Ditt namn" class="comment_name"/><br />
+      <textarea ng-model="comment_msg" placeholder="Ditt svar" cols="40" rows="10" class="comment_msg"></textarea><br />
       <input type="submit" value="Svara" class="answer_button"/>
     </form><br />
   </div>
