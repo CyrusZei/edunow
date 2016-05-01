@@ -1,42 +1,73 @@
+<div class="question_box">
+  <div class="question_box_header">
+    <h1>{{question.question_headline}}</h1>
+  </div>
 
-  <h1>{{question.question_headline}}</h1>
-  <h2>{{question.author_user}}</h2>
-  <h2>{{question.question_msg}}</h2>
-  <h2>{{question.tags}}</h2>
-
+  <div class="question_box_msg">
+    <h2>{{question.question_msg}}</h2>
+    <h4>{{question.author_user}}</h4>
   <a ng-click="delete()">Delete</a>
+  </div>
 
-  <hr />
-  <h3>kommentarer</h3>
-  <form id="comment_form" ng-submit="addNewComment()">
-    <input type="text" ng-model="comment_name"/>
-    <input  type="text" ng-model="comment_msg"/>
-    <input type="submit" />
-  </form>
-  <div>
-    <h1>Correct Answer</h1>
-    <div ng-repeat="comment in question.comments | filter:{correct_answer:true}">
-      <h4>{{comment.name}}</h4>
-
-      <h4>{{comment.msg}}</h4>
-
-      <br />
-      <br />
-
+  <div class="bottom_question_tags">
+    <div class="question_box_footer">
+      Tags <i class="fa fa-tags space_icon" aria-hidden="true"></i> <span class="question_box_footer_tags">{{question.tags}}</span>
     </div>
-    <h1>end of correct_answer</h1>
+  </div>
+</div>
+
+<div class="question_box">
+  <div class="question_box_header">
+  <h2>Svara på frågan</h2>
+</div>
+  <div class="question_box_msg">
+    <form id="comment_form" ng-submit="addNewComment()">
+      <input type="text" ng-model="comment_name" placeholder="Ditt namn" id="comment_name"/><br />
+      <!-- <input  type="text" ng-model="comment_msg" placeholder="Ditt svar"/> -->
+      <textarea ng-model="comment_msg" placeholder="Ditt svar" cols="40" rows="10" id="comment_msg"></textarea><br />
+      <input type="submit" value="Svara" class="answer_button"/>
+    </form><br />
+  </div>
+</div>
+
+
+
+
+
+
+<div class="question_box">
+    <div class="question_box_header">
+      <h1>Rätt(a) svar</h1>
+    </div>
+    <div class="question_box_msg">
+        <div ng-repeat="comment in question.comments | filter:{correct_answer:true}" class="corrent_answers_top">
+          <div class="question_box_header">
+            <h4>{{comment.msg}}</h4>
+          </div>
+          <hr />
+          <h4>{{comment.name}}</h4>
+          <br />
+          <br />
+
+        </div>
+      </div>
+    <br />
   </div>
 
 
 
-  <div ng-repeat="comment in question.comments track by $index " ng-class="comment.correct_answer ? 'correct_answer_true' : 'correct_answer_default'">
+  <div ng-repeat="comment in question.comments track by $index " ng-class="comment.correct_answer ? 'corrent_answers_top' : 'default_answers_top'">
 
-
+    <div class="question_box_header">
+      <h4>{{comment.msg}}</h4>
+    </div>
+    <hr />
     <h4>{{comment.name}}</h4>
-    <h4 ng-click="upVoteComment($index)">{{comment.vote}}</h4>
-    <h4>{{comment.msg}}</h4>
-    <span class="correct_answer" ng-click="correct($index)">Correct answer?</span>
+
+    <h3 ng-click="upVoteComment($index)">{{comment.vote}} <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></h3>
+
+    <span class="answer_button" ng-click="correct($index)">Rätt svar ?</span>
     <br />
     <br />
-<hr />
+
   </div>
