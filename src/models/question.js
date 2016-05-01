@@ -11,7 +11,8 @@ var questionSchema = new mongoose.Schema({
   comments: [{
     name: String,
     vote: Number,
-    msg: String
+    msg: String,
+    correct_answer: Boolean
       }]
 });
 
