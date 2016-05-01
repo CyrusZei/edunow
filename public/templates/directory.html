@@ -1,9 +1,23 @@
 
- Search: <input ng-model="query">
-<div ng-repeat="question in questions | filter:query">
-  <a ng-href="/#/question/{{question._id}}"><h1>{{question.question_headline}}</h1></a>
-  <h2>{{question.author_user}}</h2>
-  <h2>{{question.question_msg}}</h2>
-  <h2>{{question.tags}}</h2>
+ <div class="search_box">
+   <input ng-model="query" id="search" placeholder="Skriv in en fråga">
+ </div>
+<div class="question_box" ng-repeat="question in questions | filter:query">
+  <div class="question_box_header">
+    <a ng-href="/#/question/{{question._id}}">
+    <h1>{{question.question_headline}}</h1></a>
+  </div>
+
+  <div class="question_box_msg">
+    <h2>{{question.question_msg}}</h2>
+    <h4>{{question.author_user}}</h4>
+  </div>
+
+  <div class="bottom_question_tags">
+    <div class="question_box_footer">
+        {{question.tags}}
+    </div>
+  </div>
+
 
 </div>
