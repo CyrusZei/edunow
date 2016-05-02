@@ -100,7 +100,12 @@ float: right;
   padding-left: 10px;
 }
 
-
+.guru_shark{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 260px;
+}
 .comment_name{
 
   height: 50px;
