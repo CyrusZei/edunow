@@ -1,6 +1,6 @@
 var app = angular.module('app',['ngRoute']);
 
-app.config(function($routeProvider){
+app.config(function($routeProvider/*, $locationProvider*/){
   $routeProvider.
   when('/',{
     templateUrl : '../templates/directory.html',
@@ -15,7 +15,7 @@ app.config(function($routeProvider){
 
   }).
   otherwise({redirectTo:'/'});
-
+  //$locationProvider.html5mode(true);
 });
 
 app.controller('directoryController',['$scope','$http', function($scope,$http){
@@ -108,20 +108,14 @@ $scope.addNewComment = function(){
     data: {
       comments: $scope.question.comments
     }
+  }).then(function(response){
+    $scope.comment_name = "";
+    $scope.comment_msg = "";
+
   });
 
 
 
-/*
-  $http.put('/api/' + questionId, {id:questionId, comments: commentArray}).success(function(data){
-    $scope.question = data;
-    $scope.question.comments.push(commentArray);
-  }).then(function(res){
-    console.log($scope.question);
-
-    //console.log(res);
-  });
-*/
 
 };
 

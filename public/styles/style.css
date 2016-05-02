@@ -106,6 +106,9 @@ float: right;
   right: 0px;
   width: 260px;
 }
+.correct_check {
+  color: #8BC34A;
+}
 .comment_name{
 
   height: 50px;
