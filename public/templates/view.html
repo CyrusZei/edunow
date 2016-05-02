@@ -6,7 +6,7 @@
   <div class="question_box_msg">
     <h2>{{question.question_msg}}</h2>
     <h4>{{question.author_user}}</h4>
-  <a ng-click="delete()">Delete</a>
+  <a class="answer_button_del" ng-click="delete()">Ta bort fråga</a>
   </div>
 
   <div class="bottom_question_tags">
@@ -47,7 +47,7 @@
           <h4>{{comment.name}}</h4>
           <br />
           <br />
-
+          <h3 ng-click="upVoteComment($index)">{{comment.vote}} <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></h3>
         </div>
       </div>
     <br />
@@ -65,7 +65,7 @@
 
     <h3 ng-click="upVoteComment($index)">{{comment.vote}} <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></h3>
 
-    <span class="answer_button" ng-click="correct($index)">Rätt svar ?</span>
+    <span  ng-click="correct($index)" ng-class="comment.correct_answer ? 'answer_button_hide' : 'answer_button'">Rätt svar ?</span>
     <br />
     <br />
 

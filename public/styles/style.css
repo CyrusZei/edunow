@@ -12,6 +12,7 @@ body {
 a {
   text-decoration: none;
   color: #4db2eb;
+  cursor: pointer;
 }
 .correct_answer{
   background-color: #00FF00;
@@ -104,7 +105,7 @@ float: right;
 
   height: 50px;
       font-size: 14px;
-      padding: 0px 144px 0px 10px;
+      width: 300px;
       /* border-radius: 5px; */
       border-bottom: 1px solid #538fbe;
       border-top: none;
@@ -115,7 +116,7 @@ float: right;
 .comment_msg{
   height: 100px;
       font-size: 14px;
-      padding: 0px 0px 0px 10px;
+      width: 300px;
       /* border-radius: 5px; */
       border-bottom: 1px solid #538fbe;
       border-top: none;
@@ -133,6 +134,21 @@ float: right;
     padding: 14px 70px;
     font-size: 17px;
     border: 1px solid #2d6898;
+}
+.answer_button_hide {
+  display: none;
+}
+
+.answer_button_del {
+  display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    background-color: #b5001b;
+    padding: 14px 70px;
+    font-size: 17px;
+    border: 1px solid #2d6898;
+    margin-bottom: 10px;
 }
 
 .corrent_answers_top {

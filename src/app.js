@@ -27,5 +27,5 @@ Resource.register(app, '/api');
 
 
 app.listen(3000, function(){
-  console.log("Server is online, port 3000");
+  console.log("Server is online, goto : localhost:3000/#/");
 });

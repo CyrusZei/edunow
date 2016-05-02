@@ -44,7 +44,7 @@ $scope.addNewQuestion = function() {
       tags: $scope.tags
     }
   }).then(function(response) {
-    alert("data has been saved");
+    alert("Dina fråga har skapats!");
     $window.open('/', '_self');
     $scope.questions.push(response.data);
     console.log("scope");
