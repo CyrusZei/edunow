@@ -40,7 +40,7 @@ app.controller('searchController',['$scope','$http','$window','$location', funct
 
      for(var i = 0;i < data.length; i++) {
        //console.log(data[i].question_headline);
-       if(data[i].question_headline.indexOf(searchObject.foo) > -1){
+       if(data[i].question_headline.toLowerCase().indexOf(searchObject.foo.toLowerCase()) > -1){
          listArray.push(data[i]);
          console.log("true");
          console.log(data[i].question_headline);
@@ -51,6 +51,7 @@ app.controller('searchController',['$scope','$http','$window','$location', funct
      console.log("list arr");
      console.log(listArray);
 
+     $scope.lists = listArray;
 
    });
 
