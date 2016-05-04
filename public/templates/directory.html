@@ -3,7 +3,7 @@
    <input ng-model="query" id="search" placeholder="Skriv in en fråga till guruSHARK">
  </div>
 
-<div class="question_box" ng-repeat="question in questions | filter:query">
+<div class="question_box" ng-repeat="question in questions | filter:query ">
   <div class="question_box_header">
     <a ng-href="/#/question/{{question._id}}">
     <h1>{{question.question_headline}}</h1></a>
@@ -21,7 +21,7 @@
        <span class="question_box_footer_answers">Kommentarer<i class="fa fa-comment-o space_icon" aria-hidden="true"></i> {{question.comments.length}}</span>
 
 
-         <span class="question_box_footer_answers_correct" ng-repeat="comment in question.comments  | filter:{correct_answer:true} as result " ng-show="$first">Rätt(a) svar<i class="fa fa-check space_icon correct_check" aria-hidden="true"></i> {{result.length}}
+         <span class="question_box_footer_answers_correct" ng-repeat="comment in question.comments  | filter:{correct_answer:true} as result  " ng-show="$first">Rätt(a) svar<i class="fa fa-check space_icon correct_check" aria-hidden="true"></i> {{result.length}}
 
          </span>
 
