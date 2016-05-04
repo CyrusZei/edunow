@@ -34,20 +34,22 @@ app.controller('directoryController',['$scope','$http', function($scope,$http){
 
 app.controller('searchController',['$scope','$http','$window','$location', function($scope,$http,$window,$location){
    var searchObject = $location.search();
-
+   console.log(searchObject.foo);
    var listArray = [];
-   $http.get('api/').success(function(data){
+   $http.get('/api/').success(function(data){
 
-     data.map(function (person) {
-      if (person.question_headline == searchObject.foo) {
-        console.log(person);
-        console.log(listArray.push(person));
-
-       $scope.list = person;
-      } else {
-       $scope.list = "no match";
-      }
-    }); // => [null, { "name": "john", "dinner": "sushi" }, null]
+     for(var i = 0;i < data.length; i++) {
+       //console.log(data[i].question_headline);
+       if(data[i].question_headline.indexOf(searchObject.foo) > -1){
+         listArray.push(data[i]);
+         console.log("true");
+         console.log(data[i].question_headline);
+       } else {
+         console.log("false");
+       }
+     }
+     console.log("list arr");
+     console.log(listArray);
 
 
    });
