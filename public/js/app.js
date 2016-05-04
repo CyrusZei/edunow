@@ -14,6 +14,11 @@ app.config(function($routeProvider/*, $locationProvider*/){
     controller: 'newController'
 
   }).
+  when('/search',{
+    templateUrl: '../templates/search.html',
+    controller: 'searchController'
+
+  }).
   otherwise({redirectTo:'/'});
   //$locationProvider.html5mode(true);
 });
@@ -25,6 +30,36 @@ app.controller('directoryController',['$scope','$http', function($scope,$http){
 
 
   });
+}]);
+
+app.controller('searchController',['$scope','$http','$window','$location', function($scope,$http,$window,$location){
+   var searchObject = $location.search();
+   console.log(searchObject.foo);
+   var listArray = [];
+   $http.get('/api/').success(function(data){
+
+     for(var i = 0;i < data.length; i++) {
+       //console.log(data[i].question_headline);
+       if(data[i].question_headline.toLowerCase().indexOf(searchObject.foo.toLowerCase()) > -1){
+         listArray.push(data[i]);
+         console.log("true");
+         console.log(data[i].question_headline);
+       } else {
+         console.log("false");
+       }
+     }
+     console.log("list arr");
+     console.log(listArray);
+
+     $scope.lists = listArray;
+
+   });
+
+
+
+   //$scope.list = searchObject;
+
+
 }]);
 
 app.controller('newController',['$scope','$http','$window', function($scope,$http,$window){
