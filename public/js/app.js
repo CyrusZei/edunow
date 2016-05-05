@@ -51,7 +51,7 @@ app.controller('searchController',['$scope','$http','$window','$location', funct
      console.log("list arr");
      console.log(listArray);
 
-     $scope.lists = listArray;
+     $scope.questions = listArray;
 
    });
 
