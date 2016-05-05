@@ -34,13 +34,13 @@ app.controller('directoryController',['$scope','$http', function($scope,$http){
 
 app.controller('searchController',['$scope','$http','$window','$location', function($scope,$http,$window,$location){
    var searchObject = $location.search();
-   console.log(searchObject.foo);
+   console.log(searchObject.q);
    var listArray = [];
    $http.get('/api/').success(function(data){
 
      for(var i = 0;i < data.length; i++) {
        //console.log(data[i].question_headline);
-       if(data[i].question_headline.toLowerCase().indexOf(searchObject.foo.toLowerCase()) > -1){
+       if(data[i].question_headline.toLowerCase().indexOf(searchObject.q.toLowerCase()) > -1){
          listArray.push(data[i]);
          console.log("true");
          console.log(data[i].question_headline);

@@ -1,9 +1,17 @@
-
+<!--
  <div class="search_box">
    <input ng-model="query" id="search" placeholder="Skriv in en fråga till guruSHARK">
+   <a ng-href="/#/search?q={{query}}" class="search_button">search<i class="fa fa-search" aria-hidden="true"></i></a>
  </div>
+-->
 
-<div class="question_box" ng-repeat="question in questions | filter:query ">
+<form class="form-wrapper cf">
+   <input type="text" placeholder="Fråga guruSHARK" required ng-model="query">
+   <button type="submit" id="src_btn"><a ng-href="/#/search?q={{query}}" class="search_button">Sök <i class="fa fa-search" aria-hidden="true"></i></a></button>
+</form>
+
+
+<div class="question_box" ng-repeat="question in questions ">
   <div class="question_box_header">
     <a ng-href="/#/question/{{question._id}}">
     <h1>{{question.question_headline}}</h1></a>
