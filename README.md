@@ -14,8 +14,6 @@ Hope you like it !
 ### Version
 1.0.0
 
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
 
 ### Installation
 
